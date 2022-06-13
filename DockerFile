@@ -1,0 +1,2 @@
+From java:jre-8
+COPY ./target/helloworld-0.0.1-SNAPSHOT /user/smurapaka/Downloads
