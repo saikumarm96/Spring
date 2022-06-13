@@ -1,2 +1,5 @@
-From java:jre-8
-COPY ./target/helloworld-0.0.1-SNAPSHOT /user/smurapaka/Downloads
+FROM openjdk:8
+COPY ./target/helloworld-0.0.1-SNAPSHOT.war target.war
+RUN ["java", "-jar", "target.war"]
+
+
