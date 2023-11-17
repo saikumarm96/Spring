@@ -30,6 +30,10 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - run: mkdir artifacts && cp target/*.war artifacts
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Package
+        path: artifacts
     - name: Upload to S3
       uses: shallwefootball/s3-upload-action@master
       id: S3
