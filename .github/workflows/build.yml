@@ -42,10 +42,6 @@ jobs:
         aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws_bucket: demo-practice-neela
         source_dir: artifacts/*.war
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Package
-        path: artifacts
     - run: ls
     - run: sudo docker build -t java:latest .
 
