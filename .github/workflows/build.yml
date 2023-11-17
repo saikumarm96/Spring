@@ -38,10 +38,10 @@ jobs:
   # You may pin to the exact commit or the version.
   # uses: Rebel028/s3-upload-github-action@cf3be3bcd6f8968bcd4850a8c720067c1cd402f7
       uses: Rebel028/s3-upload-github-action@0.1.4a
-       - e ${{secrets.INPUT_AWS_KEY_ID}}
-       - e ${{secrets.INPUT_AWS_SECRET_ACCESS_KEY}}
-       - e ${{secrets.INPUT_AWS_BUCKET}}
-       - e ${{secrets.INPUT_SOURCE_DIR}}
+       - e INPUT_AWS_KEY_ID
+       - e INPUT_AWS_SECRET_ACCESS_KEY
+       - e INPUT_AWS_BUCKET
+       - e INPUT_SOURCE_DIR
     - run: ls
     - run: sudo docker build -t java:latest .
 
