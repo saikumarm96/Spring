@@ -40,10 +40,10 @@ jobs:
       uses: Rebel028/s3-upload-github-action@0.1.4a    
       id: S3
       with:
-        aws_key_id: ${{secrets.AWS_KEY_ID}}
-        aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-        aws_bucket: demo-practice-neela
-        source_dir: /home/runner/work/Spring/Spring/
+        aws_key_id: ${{secrets.INPUT_AWS_KEY_ID}}
+        aws_secret_access_key: ${{secrets.INPUT_AWS_SECRET_ACCESS_KEY}}
+        INPUT_AWS_BUCKET: demo-practice-neela
+        INPUT_SOURCE_DIR: /home/runner/work/Spring/Spring/
     - run: ls
     - run: sudo docker build -t java:latest .
 
