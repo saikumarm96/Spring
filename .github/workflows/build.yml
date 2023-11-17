@@ -41,7 +41,7 @@ jobs:
         aws_key_id: ${{secrets.AWS_KEY_ID}}
         aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws_bucket: demo-practice-neela
-        source_dir: /home/runner/work/Spring/Spring/artifacts/helloworld-0.0.1-SNAPSHOT.war
+        source_dir: /home/runner/work/Spring/Spring/artifacts/
     - run: ls
     - run: sudo docker build -t java:latest .
 
