@@ -54,7 +54,7 @@ jobs:
         username: saikumarm96
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: docker push
-      uses: docker/build-push-actions@v4
+      uses: docker/build-push-action@v5
       with:
         push: true
         tags: saikumarm96/docker:latest
