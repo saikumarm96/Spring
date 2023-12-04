@@ -48,7 +48,7 @@ jobs:
     #       SOURCE_DIR: ${{env.RELEASE_FOLDER_NAME}}
     - run: ls
     - run: sudo docker build -t saikumarm96/docker:latest .
-    - run: sudo docker login -u saikumarm96 -p ${{ secrets.PASSWORD }}
+    - run: sudo docker login -u saikumarm96 --password-stdin ${{ secrets.PASSWORD }}
     - run: sudo docker push saikumarm96/docker:latest
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
