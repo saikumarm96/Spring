@@ -34,16 +34,18 @@ jobs:
       with:
         name: Package
         path: artifacts
-    - name: Uploading Extracted Artifacts to S3
-      uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --acl public-read --follow-symlinks --delete
-      env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}/$BUILD_VERSION_NO
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: ${{env.RELEASE_FOLDER_NAME}}
+    - uses: hashicorp/setup-terraform@v3
+    - run: terraform init
+    # - name: Uploading Extracted Artifacts to S3
+    #   uses: jakejarvis/s3-sync-action@master
+    #   with:
+    #     args: --acl public-read --follow-symlinks --delete
+    #   env:
+    #       AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}/$BUILD_VERSION_NO
+    #       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #       AWS_REGION: ${{ secrets.AWS_REGION }}
+    #       SOURCE_DIR: ${{env.RELEASE_FOLDER_NAME}}
     - run: ls
     - run: sudo docker build -t java:latest .
 
