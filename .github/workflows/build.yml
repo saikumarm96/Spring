@@ -47,7 +47,6 @@ jobs:
     #       AWS_REGION: ${{ secrets.AWS_REGION }}
     #       SOURCE_DIR: ${{env.RELEASE_FOLDER_NAME}}
     - run: ls
-    - run: sudo docker build -t saikumarm96/docker:latest .
     - name: docker login
       uses: docker/login-action@v3
       with:
@@ -56,6 +55,7 @@ jobs:
     - name: docker push
       uses: docker/build-push-action@v5
       with:
+        context: .
         push: true
         tags: saikumarm96/docker:latest
 
